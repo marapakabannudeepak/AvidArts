@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title></title>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="shopcart.css"/>
+        <script src="shopcart.js" async></script>
+
+<style>
+  
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+@import url("https://fonts.googleapis.com/css?family=Metal+Mania");
+@font-face {
+    font-family: "Booter - Zero Zero";
+    src: url("Fonts/Booter - Zero Zero.woff") format("woff"),
+         url("Fonts/Booter - Zero Zero.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    box-sizing: border-box;
+    font-family: Raleway;
+    color: #777;
+}
+
+
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: blueviolet; 
+  font-size: large;
+}
+/*button{
+  //  background-color: rgb(49, 4, 49);
+//}*/
+body{
+    background-color: black;
+    background-image: url(https://img.freepik.com/free-photo/questions-mark-wooden-cube-block-table-background-faq-frequency-asked-questions-answer-q-information-communication-interrogation-concepts_42256-4305.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    margin-left: 100px;
+    margin-right: 800px;
+    padding: 0;
+    min-height: 100%;  
+}
+html{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;   
+}
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: .5em;
+    color: white;
+    text-decoration: none;
+}
+
+.main-nav {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: lighter;
+    border-bottom: 1px solid rgba(255, 255, 255, .3)
+}
+
+.main-nav li {
+    padding: 0 5%;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
+.main-header {
+    background-color: rgba(0, 0, 0, .6);
+    background-image: url("Images/Header Background.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+}
+
+.band-name {
+    text-align: center;
+    margin: 0;
+    font-size: 4em;
+    font-family: "Booter - Zero Zero";
+    font-weight: normal;
+    color: white;
+}
+.band-name-large {
+    font-size: 8em;
+}
+
+.section-header {
+    font-family: "Metal Mania";
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.about-band-image {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 50%;
+}
+.main-footer {
+    background-color: #56CCF2;
+    color: white;
+    padding: .25em 0;
+}
+
+.main-footer-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-footer-container ul {
+    flex-grow: 1;
+    text-align: end;
+}
+.footer-nav li {
+    padding: 0 .5em;
+}
+
+.footer-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+}
+
+.btn-header {
+    margin: .5em 15% 2em 15%;
+    color: white;
+    border: 2px solid #2D9CDB;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 0;
+    font-size: 1.5em;
+    font-weight: lighter;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.btn-header:hover {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.btn-play {
+    display: block;
+    margin: 0 auto;
+    color: #2D9CDB;
+    font-size: 4em;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    text-align: center;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #56CCF2;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #2D9CDB;
+}
+.tour-row {
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.tour-row:last-child {
+    border: none;
+}
+
+.tour-item {
+    display: inline-block;
+    padding-right: .5em;
+}
+
+.tour-date {
+    color: #555;
+    width: 11%;
+    font-weight: bold;
+}
+
+.tour-city {
+    width: 24%;
+}
+
+.tour-arena {
+    width: 42%;
+}
+
+.tour-btn {
+    max-width: 19%;
+}
+
+.shop-item {
+    margin: 30px;
+}
+
+.shop-item-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 250px;
+    float: left;
+    width:  250px;
+    height: 250px;
+    object-fit: cover;
+
+}
+
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+   
+}
+
+.shop-item-price {
+    flex-grow: 1;
+    color: #333;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
+
+.fa-facebook {
+color: white;
+}
+
+.fa-twitter {
+color: white;
+}
+
+#footer {
+position: relative;
+overflow: hidden;
+}
+
+.wrap {
+background: #3E3E3E;
+margin: 0 auto;
+position: relative;
+overflow: hidden;
+}
+
+#footer a,
+#footer h3 {
+font: 'Open Sans', sans-serif;
+color: #fff;
+font-size: 14px;
+font-weight: normal;
+text-transform: uppercase;
+line-height: 26px;
+}
+
+.clear {
+clear: both;
+}
+
+.left {
+text-align: left;
+float: left;
+width: 33%;
+padding: 20px;
+}
+
+.right {
+float: right;
+text-align: left;
+padding-right: 150px;
+font: 'Open Sans', sans-serif;
+color: #fff;
+font-size: 14px;
+}
+
+.footer-basic {
+padding:20px 0;
+background-color:#8f8787;
+color:#4b4c4d;
+}
+
+.footer-basic ul {
+padding:0;
+list-style:none;
+text-align:center;
+font-size:18px;
+line-height:1.6;
+margin-bottom:0;
+}
+
+.footer-basic li {
+padding:0 10px;
+}
+
+.footer-basic ul a {
+color:inherit;
+text-decoration:none;
+opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:15px;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:5px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+.social{
+  padding-top: 0px;
+}
+
+        .search-container{
+            margin-top: 10px;
+       }
+
+       .button {
+         display: inline-block;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         color: #ffffff;
+         background-color: #7aa8b7;
+         border-radius: 6px;
+         outline: none;
+       }
+ 
+   .menu-btn {
+    background-color: black;
+     
+    color: white;
+    padding: 0px;
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+     border-top-width: 0px;
+     border-left-width: 00px;
+     border-bottom-width: 00px;
+     border-right-width: 0px;
+ 
+ 
+ }
+ .dropdown-menu {
+    position: relative;
+    display: inline-block;
+   min-width: 10px;
+   padding-top: 0px;
+     padding-right: 0px;
+     padding-bottom: 0px;
+     padding-left: 0px;
+ }
+ .menu-content {
+     text-align: center;
+     display: none;
+     position: inherit;
+     background-color: #9d9d9d;
+     color: #000;
+     list-style: none;
+     width: auto;
+     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+     z-index: 998;
+ } 
+ nav{
+    background-color: #017575;
+ }
+ .links,.links-hidden{
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    padding: 6px 6px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+ }
+ .links-hidden{
+    display: block;
+ }
+ .links{
+    display: inline-block;
+ }
+ .links-hidden:hover,.links:hover {
+    background-color: rgb(84, 85, 85);
+ }
+ .dropdown-menu:hover .menu-content {
+    display: block;
+ }
+ .dropdown-menu:hover .menu-btn {
+    background-color: #3e8e41;
+ }
+
+
+
+
+h2{
+  background-color: blueviolet;
+  font-size: xx-large;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+</head>
+<body >
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <nav class="navbar navbar-inverse navbar-fixed-top">  
+      <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+  <ul class="nav navbar-nav">
+    <li><a  href="homeaft">Home</a></li>
+     <li><a href="artworks">Artist</a></li>
+    <li><a href="artworksfinal">Art works</a></li>
+    <li><a href="faq">FAQs</a></li>
+    <li><a href="help">Help</a></li>
+    <li><a href="contactus">Contact Us&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </a></li>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </ul>
+  
+    <ul class="nav navbar-nav navbar-right">
+    <li>
+      <div class="search-container">
+        <form >
+          <input type="text" placeholder="Search" name="search">
+          <button type="submit" onclick= "alert('SEARCH QUERY INITIATED!')"i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </li>
+
+    <li>
+      <div><a href="/register">
+        <button type="button" class="sizecheck" style="color: rgb(18, 17, 17);">Logout</button> 
+      </a>
+    </div>
+    </li>
+  
+
+    <li class="cart">
+        <a href="artworksfinal#id5">
+        <ion-icon name="basket"></ion-icon>CART<span></span>
+      </a>
+    </li>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </ul>
+  </div>
+  
+  </nav>
+
+
+<h2 align="middle"> FAQs</h2>
+<button class="accordion">What is sell on Avid Arts?</button>
+<div class="panel">
+  <p>
+    Sell on Avid Arts is a program that enables you to list and sell your product on AV.in.
+  </p>
+</div>
+
+<button class="accordion">How do we sell on AV.in? </button>
+<div class="panel">
+  <p>Selling on AV.in is easy. First you list the products that you want to sell on AV.in marketplace. Customer explore your product and makes a purchase.</p>
+</div>
+
+<button class="accordion">What products can i sell on AV.in? </button>
+<div class="panel">
+  <p>All handmade arts
+    Cartoon drawing,Figure drawing,Line drawing,Gesture drawing,Scratchboard drawing etc..
+  </p>
+</div>
+
+<button class="accordion">I don't have a website,can I still sell on AV.in? </button>
+<div class="panel">
+  <p>You don't need a website to start selling on AV.in marketplace. Once you complete registration, you will have access to our Seller platform using which you can list your products for sale on AV.in. </p>
+</div>
+
+<button class="accordion">How can I calculate profitability?</button>
+<div class="panel">
+  <p>You can calculate the approximate cost per products using our calculator here. By deducting your cost price, you can assess your profitability and which fulfillment channel is right for which of your products.</p>
+</div>
+
+<button class="accordion">How does the Avid Arts program benefit me?</button>
+<div class="panel">
+  <p>YYou may earn Rewards by participating in tasks/contests available to you.This program helps you grow on AV.in and earn the Rewards at same time.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+<br>
+<br>
+<br>
+<form>
+    <textarea id="w3review" name="w3review" style="font-size: 15pt" rows="7" cols="51">Any questions? </textarea> 
+<br>
+    <input type="submit" style=" font-size: large ; background-color: blueviolet; color:antiquewhite ;" value=" Submit ">
+  </form>
+</body>
+</html>

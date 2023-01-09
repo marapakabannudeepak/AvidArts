@@ -1,0 +1,661 @@
+<!DOCTYPE html>                                             
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="projectfile.css">
+    <title>AVID ARTS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bootstrap-3.3.2-dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/bootstrap-3.3.2-dist/css/main.css" />
+<link rel="stylesheet" href="./css/main.css">
+
+    <script src="javascr.js"></script>
+<style>
+ul {                                                                            
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(87, 83, 83);
+  }
+  
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  body {
+  background-color: rgba(229, 242, 253, 0.493);
+  margin-left: 80px;
+  margin-right: 80px
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #0d0d0e;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: rgb(152, 206, 223);
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #a0bbdf;
+  color: rgb(242, 242, 250);
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+ 
+
+.button {
+    background-color: #71def1; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  .sizecheck{
+    background-color: #7f8282; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
+  .myDiv{
+      font-size: x-large;
+      background-color:#a0bbdf;
+       padding-top: 15px;
+    text-align: center;
+  }
+
+.cart ion-icon
+{
+  vertical-align: bottom;
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+.cart a{
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+  .add-cart{
+    position: absolute;
+    width: 100%;
+    background-color: darkgrey;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    text-align: center;
+  }
+
+
+  .square:hover .cart1,
+.square:hover .cart2,
+.square:hover .cart3,
+.square:hover .cart4,
+.square:hover .cart5,
+.square:hover .cart6
+{
+bottom: 50px;
+opacity: 1;
+padding: 10px;
+text-decoration: none;
+}
+
+ 
+
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: 4% 2%;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.box {
+  flex: 1;
+  overflow: hidden;
+  transition: .5s;
+  margin: 0 2%;
+  box-shadow: 0 20px 30px rgba(0,0,0,.1);
+  line-height: 0;
+}
+
+.box > img {
+  width: 200%;
+  height: calc(100% - 10vh);
+  object-fit: cover; 
+  transition: .5s;
+}
+
+.box > span {
+  font-size: 3.8vh;
+  display: block;
+  text-align: center;
+  height: 10vh;
+  line-height: 2.6;
+}
+
+.box:hover { flex: 1 1 50%; }
+.box:hover > img {
+  width: 100%;
+  height: 100%;
+}
+ 
+.fa-facebook {
+  color: white;
+}
+
+.fa-twitter {
+  color: white;
+}
+
+#footer {
+    position: relative;
+	overflow: hidden;
+}
+
+.wrap {
+	background: #3E3E3E;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+ #footer a,
+ #footer h3 {
+    font: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 26px;
+ }
+
+.clear {
+    clear: both;
+}
+
+.left {
+    text-align: left;
+    float: left;
+    width: 33%;
+    padding: 20px;
+}
+
+.right {
+    float: right;
+    text-align: left;
+    padding-right: 150px;
+    font: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer-basic {
+  padding:20px 0;
+  background-color:#8f8787;
+  color:#4b4c4d;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:15px;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:5px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+
+.social{
+  padding-top: 0px;
+}
+
+.search-container{
+    margin-top: 10px;
+}
+ul{
+  background-color: #000;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #7aa8b7;
+    border-radius: 6px;
+    outline: none;
+}
+
+  .menu-btn {
+  
+    background-color: #000;
+   color: white;
+   padding: 0px;
+   padding-top: 5px;
+   font-size: 20px;
+   font-weight: none;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+    border-top-width: 0px;
+    border-left-width: 00px;
+    border-bottom-width: 00px;
+    border-right-width: 0px;
+}
+
+.dropdown-menu {
+   position: relative;
+   display: inline-block;
+  min-width: 10px;
+  padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+.menu-content {
+
+    text-align: center;
+    display: none;
+    position: inherit;
+    background-color: #9d9d9d;
+    color: #000;
+    list-style: none;
+    width: auto;
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+    z-index: 998;
+}
+
+.links,.links-hidden{
+   display: inline-block;
+   color: rgb(255, 255, 255);
+   padding: 6px 6px;
+   text-decoration: none;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+.links-hidden{
+   display: block;
+}
+.links{
+   display: inline-block;
+}
+.links-hidden:hover,.links:hover {
+  background-color: #9d9d9d;
+}
+.dropdown-menu:hover .menu-content {
+   display: block;
+}
+.dropdown-menu:hover .menu-btn {
+   background-color: #3e8e41;
+}
+
+
+
+.container_imgtext{
+  position: relative;
+  color:black;
+  margin-left: 45px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -70%);
+  font-family: fantasy;
+  text-align: center;
+  font-size: 60px;
+  color:black;
+}
+
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 35px;
+  font-size: 17px;
+  text-align: left;
+}
+
+.top-center{
+ position: absolute;
+ top:0%;
+ left: 35%;
+ font-family: serif;
+ font-size: 50px;
+ text-align: center;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 125px;
+  font-size: 17px;
+  text-align: right;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 100px;
+  left: 35px;
+  font-family: fantasy;
+  font-size: 30px;
+  text-align: left;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 125px;
+  font-family: fantasy;
+  font-size: 30px;
+  text-align: right;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:black;
+  border: 0 none;
+  /*margin-top: 100px;
+  margin-bottom:100px;*/
+}
+
+.vl {
+  border-left: 6px solid green;
+  height: 50px;
+}
+
+
+</style>
+</head>
+<body>
+  <script type="text/javascript">  
+    function validate(){  
+    var search=document.search.value;  
+    var status=false;  
+    if(search.equals(paintings)){
+      window.location.href = "https://www.geeksforgeeks.org/";
+    }
+   }  
+    </script> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <nav class="navbar navbar-inverse navbar-fixed-top">  
+    <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
+<ul class="nav navbar-nav">
+  <li><a class="active" href="#homeaft">Home</a></li>
+   <li><a href="artworks">Artist</a></li>
+  <li><a href="artworksfinal">Art works</a></li>
+  <li><a href="faq">FAQs</a></li>
+  <li><a href="help">Help</a></li>
+  <li><a href="contactus">ContactUs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+  </a></li>
+  
+  <li>
+
+  </li>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</ul>
+
+  <ul class="nav navbar-nav navbar-right">
+  <li>
+    <div class="search-container">
+      <form >
+        <input type="text" placeholder="Search" name="search" id="search">
+        <button type="submit" id="test" onclick="alert('Search query initiated...')" i class="fa fa-search"></i></button>
+      </form> 
+    </div>
+  </li>
+
+  <li class="cart">
+    <a href="artworksfinal#id5">
+      <ion-icon name="basket"></ion-icon>CART<span></span>
+    </a>
+  </li>
+
+  <li>
+    <div><a href="/register">
+      <button type="button" class="sizecheck" style="color: rgb(18, 17, 17);">Logout</button> 
+    </a>
+  </div>
+  </li>
+
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</ul>
+</div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="https://quotefancy.com/media/wallpaper/3840x2160/4704932-Brandon-Boyd-Quote-Art-is-everywhere-and-everywhere-is-art.jpg" alt="Chania" class="center" style="height: 75vh">
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://i.pinimg.com/originals/59/8c/d0/598cd046b257b0a3b6baa3a68dc36cc5.png" alt="Chicago" class="center" style="height:75vh">
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="https://www.quotes2love.com/wp-content/uploads/2016/05/Art-washes-away-1.jpg" alt="New York" class="center" style="height: 75vh">
+      <div class="carousel-caption">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<div class="container">
+  <div class="box">
+    <a href="artworksfinal#id1">
+      <button type="button " style="height:2em;background-color: rgb(223, 172, 243);color:#000">view more>></button>
+      </a>
+    <img src="https://www.stylemotivation.com/wp-content/uploads/2019/08/image_892.jpeg">
+    <span style="font-size:large;"><b>Paintings</b></span>
+  </div>
+  <div class="box">
+    <a href="artworksfinal#id2">
+      <button type="button " style="height:2em;background-color: rgb(223, 172, 243);color:#000">view more>></button>
+      </a>
+    <img src="https://www.designbolts.com/wp-content/uploads/2020/01/Free-Sketching-Paper-Mockup-PSD.jpg">
+    <span style="font-size:large;"><b>Sketching</b></span>
+  </div>
+  <div class="box">
+      <a href = "artworksfinal#id3">
+      <button type="button " style="height:2em;background-color: rgb(223, 172, 243);color:#000">view more>></button>
+      </a>
+    <img src="https://www.pauletpaula.com/wp-content/uploads/2019/01/embroidery-hoop.jpg">
+    <span style="font-size:large;"><b>Hoop Arts</b></span>
+  </div>
+  <div class="box">
+    <a href="artworksfinal#id4">
+      <button type="button " style="height:2em;background-color: rgb(223, 172, 243);color:#000">view more>></button>
+      </a>
+    <img src="https://www.marinabaysands.com/content/dam/singapore/marinabaysands/master/main/home/sg-visitors-guide/art-craft-500x454.jpg">
+    <span style="font-size:large;"><b>Others</b></span>
+  </div>
+</div>
+<br>
+<br>
+<div class="container_imgtext">
+  <img src="https://media.istockphoto.com/photos/watercolor-and-oil-paints-brushes-pencils-pastel-crayon-on-table-picture-id626841510?k=20&m=626841510&s=612x612&w=0&h=CtHmHYtdrlizn8MqhzzcDYkMZObViEbvj92rDpx-McA=" alt="team" style="width: 95%;height: 80%;">
+  <div class="centered">
+    <br>
+    <br>
+    <br>
+    <b >AVID ARTS<br> 
+      <p style="font-family: cursive;">WHATEVER YOU WANT</p></b>
+    
+    <p style="font-size: 20px;font-family: cursive;">**Paintings,Sketching,Hoop Arts,Others**</p>
+    <p style="height: 12px;">_____________________________</p>
+    <a href="artworksfinal">
+      <button type="button " style="height: 1.5em;width:10em;background-color: rgb(236, 11, 135);color:#000;font-size: 30px;">CHECK THEM OUT</button>
+      </a>
+  </div>
+
+</div>
+
+<div class="footer-basic">
+  <footer>
+      <div class="social">    
+        <a href="#" class="fa fa-facebook style">acebook</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" class="fa fa-twitter">Twitter</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#" class="fa fa-google">oogle</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+      </div>
+
+<p class="copyright">Company Name © 2021</p>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+</script>
+
+</script>
+</body>
+</html>

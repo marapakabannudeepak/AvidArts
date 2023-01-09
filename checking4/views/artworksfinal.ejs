@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="shopcart.css"/>
+        <script src="shopcart.js" async></script>
+      
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
+@import url("https://fonts.googleapis.com/css?family=Metal+Mania");
+
+@font-face {
+    font-family: "Booter - Zero Zero";
+    src: url("Fonts/Booter - Zero Zero.woff") format("woff"),
+         url("Fonts/Booter - Zero Zero.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Raleway;
+    color: #777;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: .5em;
+    color: white;
+    text-decoration: none;
+}
+
+.main-nav {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: lighter;
+    border-bottom: 1px solid rgba(255, 255, 255, .3)
+}
+
+.main-nav li {
+    padding: 0 5%;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, .3)
+}
+
+.main-header {
+    background-color: rgba(0, 0, 0, .6);
+    background-image: url("Images/Header Background.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    padding-bottom: 30px;
+}
+
+.band-name {
+    text-align: center;
+    margin: 0;
+    font-size: 4em;
+    font-family: "Booter - Zero Zero";
+    font-weight: normal;
+    color: white;
+}
+
+.band-name-large {
+    font-size: 8em;
+}
+
+.section-header {
+    font-family: "Metal Mania";
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.about-band-image {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+.main-footer {
+    background-color: #56CCF2;
+    color: white;
+    padding: .25em 0;
+}
+
+.main-footer-container {
+    display: flex;
+    align-items: center;
+}
+
+.main-footer-container ul {
+    flex-grow: 1;
+    text-align: end;
+}
+
+.footer-nav li {
+    padding: 0 .5em;
+}
+
+.footer-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+}
+
+.btn-header {
+    margin: .5em 15% 2em 15%;
+    color: white;
+    border: 2px solid #2D9CDB;
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 0;
+    font-size: 1.5em;
+    font-weight: lighter;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.btn-header:hover {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.btn-play {
+    display: block;
+    margin: 0 auto;
+    color: #2D9CDB;
+    font-size: 4em;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    text-align: center;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #56CCF2;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #2D9CDB;
+}
+
+.tour-row {
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.tour-row:last-child {
+    border: none;
+}
+
+.tour-item {
+    display: inline-block;
+    padding-right: .5em;
+}
+
+.tour-date {
+    color: #555;
+    width: 11%;
+    font-weight: bold;
+}
+
+.tour-city {
+    width: 24%;
+}
+
+.tour-arena {
+    width: 42%;
+}
+
+.tour-btn {
+    max-width: 19%;
+}
+
+.shop-item {
+    margin: 30px;
+}
+
+.shop-item-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 250px;
+    float: left;
+    width:  250px;
+    height: 250px;
+    object-fit: cover;
+
+}
+
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+   
+}
+
+.shop-item-price {
+    flex-grow: 1;
+    color: #333;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-row {
+    display: flex;
+}
+
+.cart-item {
+    width: 45%;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: 1.2em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+    background-color: #EB5757;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color: #CC4C4C;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
+
+    .fa-facebook {
+  color: white;
+}
+
+.fa-twitter {
+  color: white;
+}
+
+#footer {
+    position: relative;
+	overflow: hidden;
+}
+
+.wrap {
+	background: #3E3E3E;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+ #footer a,
+ #footer h3 {
+    font: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 26px;
+ }
+
+.clear {
+    clear: both;
+}
+
+.left {
+    text-align: left;
+    float: left;
+    width: 33%;
+    padding: 20px;
+}
+
+.right {
+    float: right;
+    text-align: left;
+    padding-right: 150px;
+    font: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer-basic {
+  padding:20px 0;
+  background-color:#8f8787;
+  color:#4b4c4d;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:15px;
+}
+
+.footer-basic .social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:5px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+
+
+.social{
+  padding-top: 0px;
+}
+
+        .search-container{
+            margin-top: 10px;
+       }
+
+       .button {
+         display: inline-block;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         color: #ffffff;
+         background-color: #7aa8b7;
+         border-radius: 6px;
+         outline: none;
+       }
+ 
+   .menu-btn {
+    background-color: black;
+     
+    color: white;
+    padding: 0px;
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+     border-top-width: 0px;
+     border-left-width: 00px;
+     border-bottom-width: 00px;
+     border-right-width: 0px;
+ 
+ 
+ }
+ .dropdown-menu {
+    position: relative;
+    display: inline-block;
+   min-width: 10px;
+   padding-top: 0px;
+     padding-right: 0px;
+     padding-bottom: 0px;
+     padding-left: 0px;
+ }
+ .menu-content {
+     text-align: center;
+     display: none;
+     position: inherit;
+     background-color: #9d9d9d;
+     color: #000;
+     list-style: none;
+     width: auto;
+     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+     z-index: 998;
+ } 
+ nav{
+    background-color: #017575;
+ }
+ .links,.links-hidden{
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    padding: 6px 6px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+ }
+ .links-hidden{
+    display: block;
+ }
+ .links{
+    display: inline-block;
+ }
+ .links-hidden:hover,.links:hover {
+    background-color: rgb(84, 85, 85);
+ }
+ .dropdown-menu:hover .menu-content {
+    display: block;
+ }
+ .dropdown-menu:hover .menu-btn {
+    background-color: #3e8e41;
+ }
+</style>
+
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <nav class="navbar navbar-inverse navbar-fixed-top">  
+          <div class="container-fluid">
+            <div class="navbar-header">
+            </div>
+      <ul class="nav navbar-nav">
+        <li><a class="active" href="homeaft">Home</a></li>
+         <li><a href="artworks">Artist</a></li>
+        <li><a href="artworksfinal">Art works</a></li>
+        <li><a href="faq">FAQs</a></li>
+        <li><a href="help">Help</a></li>
+        <li><a href="contactus">Contact Us&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a></li>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      </ul>
+      
+        <ul class="nav navbar-nav navbar-right">
+        <li>
+          <div class="search-container">
+            <form >
+              <input type="text" placeholder="Search" name="search">
+              <button type="submit" onclick= "alert('SEARCH QUERY INITIATED!')"i class="fa fa-search"></i></button>
+            </form>
+          </div>
+        </li>
+        
+        <li>
+            <div><a href="/register">
+              <button type="button" class="sizecheck" style="color: #000;">Logout</button> 
+            </a>
+          </div>
+          </li>
+      
+
+        <li class="cart">
+            <a href="artworksfinal#id5">
+            <ion-icon name="basket"></ion-icon>CART<span></span>
+          </a>
+        </li>
+      <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+      </ul>
+      </div>
+      
+      </nav>
+
+        <section class="container content-section">
+            <p class="class1" id = "id1"> 
+            <h2 class="section-header">Paintings</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">painting1</span>
+                    <img class="shop-item-image" src="https://i.ytimg.com/vi/kZNC6k5YVsc/maxresdefault.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$12.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">painting2</span>
+                    <img class="shop-item-image" src="https://5.imimg.com/data5/KT/UK/DU/SELLER-43474334/watercolour-paintings-500x500.png">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">painting3</span>
+                    <img class="shop-item-image" src="https://assets.ajio.com/medias/sys_master/root/20201201/ML4f/5fc5926cf997dd8c83b177af/-473Wx593H-461648445-multi-MODEL.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$9.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">painting4</span>
+                    <img class="shop-item-image" src="data:image/jpeg;base64,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">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">painting5</span>
+                    <img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0obhbDuGV-z33YLdZTW8cLnOCs5gi9oEhAg&usqp=CAU">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$10.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">painting6</span>
+                    <img class="shop-item-image" src="https://cdn.shopify.com/s/files/1/1306/4195/products/wallmantra-painting-hand-painted-colorful-rainy-season-painting-handmade-painting-on-canvas-framed-in-black-22003487768742.jpg?v=1628079619">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$12.80</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            </p>
+        </section>
+          
+
+        <section class="container content-section">
+            <p class="class2" id = "id2"> 
+            <h2 class="section-header">Sketching</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Sketching1</span>
+                    <img class="shop-item-image" src="https://bangalore.explocity.com/media/media/events/advanced.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$12.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Sketching2</span>
+                    <img class="shop-item-image" src="https://i.ytimg.com/vi/A628Kt8FsNw/maxresdefault.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Sketching3</span>
+                    <img class="shop-item-image" src="https://play-lh.googleusercontent.com/Kp0etODlKXfYv5hhk-CEzUPP_L25_odHY7-37WOqn3qxpOnV_K3zINv9oIoDBA-rVA=w412-h220-rw">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$9.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Sketching4</span>
+                    <img class="shop-item-image" src="https://1.bp.blogspot.com/-_FwdPmomW1w/X3tR4hogE2I/AAAAAAAAEYA/947OpP1Eu5wD4BccnOsmLW0vyLVG_C98wCLcBGAsYHQ/s2048/IMG_20190511_161540%257E4.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Sketching5</span>
+                    <img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyV8tNFoH01ZmuSOLyh3bJJJSj3RVNVc9V_w&usqp=CAU">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Sketching6</span>
+                    <img class="shop-item-image" src="https://i.pinimg.com/originals/a0/ae/4a/a0ae4a15320577aed06acc49cb38c43b.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$10.59</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            </p>
+        </section>
+    
+
+
+
+        <section class="container content-section">
+            <p class="class3" id = "id3"> 
+            <h2 class="section-header">Hoop Arts</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Hoop Arts1</span>
+                    <img class="shop-item-image" src="https://i.pinimg.com/originals/97/30/eb/9730eb8ca982853aeb7d62391fc8ed1b.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$12.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Hoop Arts2</span>
+                    <img class="shop-item-image" src="https://blog.folksy.com/wp-content/uploads/2018/06/embroidery-hoop-art.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Hoop Arts3</span>
+                    <img class="shop-item-image" src="https://i.etsystatic.com/14564720/r/il/897e6e/1211609392/il_fullxfull.1211609392_t572.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$9.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Hoop Arts4</span>
+                    <img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqUylJg2Yr0bCB1BET5B8Y8VWc9zEOyINfeA&usqp=CAU">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Hoop Arts5</span>
+                    <img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99oiybs4ocZuoo78mwFIWsOmiHxM0jKJfQA&usqp=CAU">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Hoop Arts6</span>
+                    <img class="shop-item-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHuuBz_5aiM0iknsLIZOi9cSpgpUQ73Igr_Q&usqp=CAU">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            </p>
+        </section>
+
+
+        <section class="container content-section">
+            <h2 class="section-header">Others</h2>
+            <div class="shop-items">
+                <div class="shop-item">
+                    <span class="shop-item-title">Others1</span>
+                    <img class="shop-item-image" src="https://stylesatlife.com/wp-content/uploads/2017/12/Wall-Decor-Craft-Ideas.jpg.webp">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$12.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Others2</span>
+                    <img class="shop-item-image" src="https://sc01.alicdn.com/kf/HTB1eu9JGFXXXXaraXXXq6xXFXXXy/200662653/HTB1eu9JGFXXXXaraXXXq6xXFXXXy.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$14.99</span>
+                        <button class="btn btn-primary shop-item-button"type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Others3</span>
+                    <img class="shop-item-image" src="https://images.herzindagi.info/image/2021/Mar/resin-art-m_g.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$9.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Others4</span>
+                    <img class="shop-item-image" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/2-mandala-art-layeeka-israth.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$13.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Others5</span>
+                    <img class="shop-item-image" src="https://4.imimg.com/data4/UJ/BO/MY-35683638/creative-paper-diy-wall-500x500.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$10.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <span class="shop-item-title">Others6</span>
+                    <img class="shop-item-image" src="https://artfulparent.com/wp-content/uploads/2020/06/A_fairy_house_for_kids_made_with_clay.jpg">
+                    <br>
+                    <div class="shop-item-details">
+                        <span class="shop-item-price">$19.99</span>
+                        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+            <section class="container content-section">
+            
+                    <p class="class2" id = "id5"> 
+                <h2 class="section-header">CART</h2>
+                <div class="cart-row">
+                    <span class="cart-item cart-header cart-column">ITEM</span>
+                    <span class="cart-price cart-header cart-column">PRICE</span>
+                    <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+                </div>
+                <div class="cart-items">
+                </div>
+                <div class="cart-total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price"></span>
+                </div>
+                <a href="purchase">
+                <button  class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+                </a>
+                </p>
+            </section>       
+      
+
+        <div class="footer-basic">
+            <footer>
+                <div class="social">    
+                  <a href="#" class="fa fa-facebook style">acebook </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="#" class="fa fa-twitter">Twitter</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="#" class="fa fa-google">oogle</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+                </div>
+              
+          
+          <p class="copyright">Company Name © 2021</p>
+            </footer>
+          </div>
+
+<script>
+              console.log('running')
+
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', ready)
+} else {
+    ready()
+}
+
+function ready() {
+    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+    for (var i = 0; i < removeCartItemButtons.length; i++) {
+        var button = removeCartItemButtons[i]
+        button.addEventListener('click', removeCartItem)
+    }
+
+    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+    for (var i = 0; i < quantityInputs.length; i++) {
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged)
+    }
+
+    var addToCartButtons = document.getElementsByClassName('shop-item-button')
+    for (var i = 0; i < addToCartButtons.length; i++) {
+        var button = addToCartButtons[i]
+        button.addEventListener('click', addToCartClicked)
+    }
+
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function purchaseClicked() {
+    alert('Thank you for your purchase')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
+    }
+    updateCartTotal()
+}
+
+function removeCartItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.remove()
+    updateCartTotal()
+}
+
+function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function addToCartClicked(event) {
+    var button = event.target
+    var shopItem = button.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    addItemToCart(title, price, imageSrc)
+    updateCartTotal()
+}
+
+function addItemToCart(title, price, imageSrc) {
+    var cartRow = document.createElement('div')
+    cartRow.classList.add('cart-row')
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    for (var i = 0; i < cartItemNames.length; i++) {
+        if (cartItemNames[i].innerText == title) {
+            alert('This item is already added to the cart')
+            return
+        }
+    }
+
+    var cartRowContents = `
+        <div class="cart-item cart-column">
+            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+            <span class="cart-item-title">${title}</span>
+        </div>
+        <span class="cart-price cart-column">${price}</span>
+        <div class="cart-quantity cart-column">
+            <input class="cart-quantity-input" type="number" value="1">
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        </div>`
+    cartRow.innerHTML = cartRowContents
+    cartItems.append(cartRow)
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+}
+
+function updateCartTotal() { 
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+    var total = 0
+    for (var i = 0; i < cartRows.length; i++) {
+        var cartRow = cartRows[i]
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ''))
+        var quantity = quantityElement.value
+        total = total + (price * quantity)
+    }
+    total = Math.round(total * 100) / 100
+    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+    }
+          </script>
+    </body>
+</html>

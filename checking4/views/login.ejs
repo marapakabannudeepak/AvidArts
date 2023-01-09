@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #4A4A4A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .temp {
+            padding-left: 100px;
+            padding-top: 100px;
+            padding-right: 75px;
+        } */
+
+        #bg {
+            background-image: url('https://coolwallpapers.me/th700/3103963-background_blank_board_card_coffee_coffee-table_color_composition_creative_creative-office_cup_cup-of-coffee_dawn_design_desk_drink_empty_freelancer_notebook_notepad_office_office-plant_orange_pa.jpg');
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            filter: blur(5px);
+        }
+
+        form {
+            width: 350px;
+            position: relative;
+        }
+
+        form .form-group::before {
+            font-size: 20px;
+            position: absolute;
+            left: 15px;
+            top: 17px;
+            color: #888888;
+            content: " ";
+            display: block;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+
+        form .form-group #form .form-control:nth-child(1)::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/OOjs_UI_icon_userAvatar.svg/1200px-OOjs_UI_icon_userAvatar.svg.png');
+            width: 20px;
+            height: 20px;
+            top: 15px;
+        }
+
+        form .form-group #form .form-control:nth-child(2)::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png');
+            width: 16px;
+            height: 16px;
+        }
+
+        form .form-group {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        form input {
+            font-family: inherit;
+            width: 100%;
+            outline: none;
+            background-color: #fff;
+            border-radius: 4px;
+            border: none;
+            display: block;
+            padding: 0.9rem 0.7rem;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            font-size: 17px;
+            color: #4A4A4A;
+            text-indent: 40px;
+        }
+
+        form .btn .btn-success {
+            outline: none;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 auto;
+            padding: 0.9rem 2.5rem;
+            text-align: center;
+            background-color: #47AB11;
+            color: #fff;
+            border-radius: 4px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+            font-size: 17px;
+        }
+
+        a {
+            outline: none;
+            text-decoration: none;
+            padding: 2px 1px 0;
+        }
+
+        a:link {
+            color: #9a2ce4;
+        }
+
+        a:visited {
+            color: #e92222;
+        }
+
+        a:focus {
+            /* border-bottom: 1px solid; */
+            background: #BAE498;
+        }
+
+        a:hover {
+            border-bottom: 1px solid;
+            background: #e6e3e1;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#form").submit(function (event) {
+                event.preventDefault();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/login',
+                    data: $('#form').serialize(),
+                    dataType: "json",
+                    success: function (response) {
+                        //alert("a");
+                        //console.log(response.Success);
+                        $('#form')[0].reset();
+
+                        document.getElementById("check").innerHTML = response.Success;
+                        //ADD THIS CODE
+                        setTimeout(function () {
+                            document.getElementById("check").innerHTML = "";
+                        }, 3000);
+                        if (response.Success == "Success!") {
+                            document.getElementById("aa").click();
+                        };
+                    },
+                    error: function () {
+                    }
+                })
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="bg"> </div>
+    <div class="col-md-4 col-md-offset-4">
+        <div class="temp">
+
+            <div>
+                <p>Login</p>
+            </div>
+            <div class="form-group">
+                <form id="form" method="post">
+                    <input type="text" name="email" placeholder="E-mail" required="" class="form-control"><br />
+                    <input type="password" name="password" placeholder="Password" required=""
+                        class="form-control"><br />
+                    <input type="submit" value="Login" class="btn btn-success">
+                </form>
+            </div>
+            <div class="mssg bg-danger">
+                <span id="check"></span>
+            </div>
+            <div id="LangTable"><a href="/homeaft" id="aa"></a>
+            </div>
+            <div><span style="color: aliceblue;">Do you forgot password?</span><a href="/forgetpass">Click here</a>
+                <div><span style="color: aliceblue;">Create a new Account?</span><a href="/register">Register here</a>
+                </div>
+            </div>
+</body>
+
+</html>

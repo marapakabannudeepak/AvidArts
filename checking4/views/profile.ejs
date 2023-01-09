@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+ <style>
+
+.square {
+     position: relative;
+     width: 300px;     
+     height: 300px;
+     overflow: hidden;
+  }
+
+  img {
+     position: absolute;
+     max-width: 100%;
+     width: 100%;
+     height: auto;
+     top: 50%;     
+     left: 50%;
+     transform: translate( -50%, -50%);
+ }
+
+  img.landscape {
+    height: 100%;
+    width: auto;
+}
+.body{
+    margin-left: 50cm;
+    margin-right: 50cm;
+}
+        .search-container{
+            margin-top: 10px;
+       }
+
+       .button {
+         display: inline-block;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         color: #ffffff;
+         background-color: #7aa8b7;
+         border-radius: 6px;
+         outline: none;
+       }
+ 
+   .menu-btn {
+    background-color: black;
+     
+    color: white;
+    padding: 0px;
+    padding-top: 5px;
+    font-size: 20px;
+    font-weight: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+     border-top-width: 0px;
+     border-left-width: 00px;
+     border-bottom-width: 00px;
+     border-right-width: 0px;
+ 
+ 
+ }
+ .dropdown-menu {
+    position: relative;
+    display: inline-block;
+   min-width: 10px;
+   padding-top: 0px;
+     padding-right: 0px;
+     padding-bottom: 0px;
+     padding-left: 0px;
+ }
+ .menu-content {
+ 
+     text-align: center;
+     display: none;
+     position: inherit;
+     background-color: #9d9d9d;
+     color: #000;
+     list-style: none;
+     width: auto;
+     box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
+     z-index: 998;
+ } 
+ nav{
+    background-color: #017575;
+ }
+ .links,.links-hidden{
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    padding: 6px 6px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+ }
+ .links-hidden{
+    display: block;
+ }
+ .links{
+    display: inline-block;
+ }
+ .links-hidden:hover,.links:hover {
+    background-color: rgb(84, 85, 85);
+ }
+ .dropdown-menu:hover .menu-content {
+    display: block;
+ }
+ .dropdown-menu:hover .menu-btn {
+    background-color: #3e8e41;
+ }
+ .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 350px;
+  cursor: pointer;
+
+}
+
+.button1 {
+    width: 250px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p{
+    padding:100px;
+    padding-left: 650px;
+   padding-right: 0px;
+   padding-bottom: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+   
+}
+body{
+    background-image: url(https://wallup.net/wp-content/uploads/2016/01/52676-digital_art-simple_background.jpg);
+    background-repeat: no-repeat;
+    
+}
+        </style>
+       
+</head>
+
+
+<body style="padding-left:100px">
+    <br>
+    <br>
+    <br>
+    <br>
+    <nav class="navbar navbar-inverse navbar-fixed-top">  
+      <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+  <ul class="nav navbar-nav">
+    <li><a class="active" href="/homeaft">Home</a></li>
+     <li><a href="artworks">Artist</a></li>
+    <li><a href="artworksfinal">Art works</a></li>
+    <li><a href="faq">FAQs</a></li>
+    <li><a href="help">Help</a></li>
+    <li>
+        <a href="profile">MyOrders&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
+    </li>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </ul>
+  
+    <ul class="nav navbar-nav navbar-right">
+    <li>
+      <div class="search-container">
+        <form >
+          <input type="text" placeholder="Search" name="search">
+          <button type="submit" onclick= "alert('SEARCH QUERY INITIATED!')"i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </li>
+    <li>
+      <div class="class1" style="padding-top:10px; padding-right:10px ;padding-left:10px">
+        <a href="login">
+            <button type="button"  class="sizecheck" style="color: #000;" >Login</button> 
+            </a>   
+        </div>
+    </li>
+  
+    
+    <li>
+      <div style="padding-left:10px; padding-top:10px"><a href="signup">
+        <button type="button" class="sizecheck" style="color: #000;">Sign Up</button> 
+      </a></div>
+  </li>
+  
+
+    <li class="cart">
+      <a href="artworksfinal#id5">
+        <ion-icon name="basket"></ion-icon>CART<span> 0 </span>
+      </a>
+    </li>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </ul>
+  </div>
+
+  </nav>
+
+  <br>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="square">
+                  <img src="http://ww1.prweb.com/prfiles/2013/03/21/10545501/MON2605-FR-20431320X24.jpg" class="img-thumbnail" alt="art1">
+                </div>
+                <div>
+                    <button onclick="location.href='artworksfinal'"> Paintings</button>
+                   <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $99.98</b>
+                   <button class="btn btn-primary shop-item-button " type="button" onclick="alert('Order Placed')">Order again</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="square">
+                    <img src="https://www.womensays.com/wp-content/uploads/2019/03/maas.art_47693206_1042042365977940_1932365758267288860_n.jpg" class="img-thumbnail" alt="art2">
+                </div>
+                <div>
+                    <button onclick="location.href='artworksfinal'"> Sketching </button>    
+                    <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $99.98</b>
+                    <button class="btn btn-primary shop-item-button " type="button" onclick="alert('Order Placed')">Order again</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="square">
+                <img src="http://www.u-createcrafts.com/wp-content/uploads/2014/09/hoop-art.jpg" class="img-thumbnail" alt="art3">
+            </div>
+              <div>
+                <button onclick="location.href='artworksfinal'"> Hoop Arts </button>    
+                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $99.98</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!--<button onclick="location.href='cart'">Order again</button>
+                <a class="add-cart cart3" href="#">ADD CART</a>-->
+                <button class="btn btn-primary shop-item-button " type="button" onclick="alert('Order Placed')">Order again</button>
+            </div>
+            </div>
+            </div>
+            <br><br>
+
+            <div class="row"> 
+            <div class="col-md-4">
+                <div class="square">
+                  <img src="https://tse1.mm.bing.net/th?id=OIP.nR2HMdDDDKte20wqoXM1ggHaHa&pid=Api&P=0&w=161&h=161" class="img-thumbnail" alt="art4">
+                </div>
+                <div>
+                  <button onclick="location.href='artworksfinal'"> others </button>    
+                  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $99.98</b>
+              </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="square">
+                      <img src="https://mymodernmet.com/wp/wp-content/uploads/2018/07/marie-antuanelle-resin-art-2.jpg" class="img-thumbnail" alt="art5">
+                    </div>
+                  <div>
+                    <button onclick="location.href='artworksfinal'"> 
+                        others </button>    
+                    <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $99.98</b>
+                    <button class="btn btn-primary shop-item-button " type="button" onclick="alert('Order Placed')">Order again</button>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="square">
+                    <img src="https://i1.wp.com/ideaboz.com/wp-content/uploads/2019/01/36-Best-Easy-Crafts-DIY-Projects-To-Make-Money-9.jpg?fit=1200%2C1823&ssl=1" class="img-thumbnail" alt="art6">
+                </div>
+                <div>
+                  <button onclick="location.href='artworksfinal'"> Others </button>    
+                  <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $99.98</b>
+                  <button class="btn btn-primary shop-item-button " type="button" onclick="alert('Order Placed')">Order again</button>
+              </div>
+            </div>
+            </div>
+            <script src="main.js"></script>
+  </body>
+</html>
